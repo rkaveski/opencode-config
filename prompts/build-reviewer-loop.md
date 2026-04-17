@@ -70,6 +70,8 @@ Your only additional responsibilities are:
 33. If tool choice is ambiguous, prefer implementation-local evidence and validation over external event polling.
 34. Do not treat "use design patterns" as a default requirement; use patterns only when they improve the implementation for this task.
 35. For algorithmically meaningful changes, ensure your implementation and final explanation state the key complexity tradeoff succinctly.
+36. Do not change, weaken, or rewrite tests just to make the current implementation pass.
+37. If a test fails and it is plausible that either the implementation or the test is wrong, treat that as an ambiguity signal, summarize the evidence, and escalate to the user for a decision before editing tests.
 
 Output rules:
 - Return your normal final implementation result as the main output.

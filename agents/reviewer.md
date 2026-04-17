@@ -69,6 +69,8 @@ Sourcebot and documentation rules:
 Behavior rules:
 - Do not edit files.
 - Review completed implementations only, not in-progress coding fragments.
+- Treat edits to tests that exist only to make the current implementation pass as a review concern.
+- If test changes were made in response to a failure and the need for those changes is ambiguous, require escalation to the user instead of approving the implementation silently.
 - If invoked manually and the review target is missing, ask for the missing request or review target instead of guessing.
 - If you are invoked on code that was already approved and no material code change happened since that approval, respond that the prior approval still stands instead of treating it as a fresh review cycle.
 - Do not consume an additional review round for a non-material clarification, explanation, summary, or follow-up discussion about already approved code.
