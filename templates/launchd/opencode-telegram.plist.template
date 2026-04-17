@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>__SERVICE_LABEL__</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>__INSTALL_DIR__/bin/opencode-telegram-service.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>__WORKING_DIRECTORY__</string>
+    <key>StandardOutPath</key>
+    <string>__LOG_DIR__/opencode-telegram.log</string>
+    <key>StandardErrorPath</key>
+    <string>__LOG_DIR__/opencode-telegram.err.log</string>
+    <key>ProcessType</key>
+    <string>Background</string>
+  </dict>
+</plist>

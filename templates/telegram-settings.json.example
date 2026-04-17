@@ -1,0 +1,12 @@
+{
+  "scheduledTasks": [],
+  "sessionDirectoryCache": {
+    "version": 1,
+    "lastSyncedUpdatedAt": 0,
+    "directories": []
+  },
+  "currentSession": null,
+  "currentProject": null,
+  "pinnedMessageId": null,
+  "currentAgent": "build"
+}

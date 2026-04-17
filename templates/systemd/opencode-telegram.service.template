@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenCode Telegram bridge
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=__WORKING_DIRECTORY__
+ExecStart=__INSTALL_DIR__/bin/opencode-telegram-service.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

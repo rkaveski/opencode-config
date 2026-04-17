@@ -1,0 +1,12 @@
+node_modules/
+.mcp/
+.DS_Store
+commands/.DS_Store
+plugins/.DS_Store
+skills/.DS_Store
+cli/
+bun.lock
+telegram-bot.env
+telegram-bot-home/.env
+telegram-bot-home/settings.json
+opencode.local.env

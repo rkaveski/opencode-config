@@ -1,0 +1,138 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "github-copilot/claude-opus-4.6",
+  "instructions": [
+    "./instructions/sourcebot-first.md",
+    "./instructions/workspace-docs-retrieval.md"
+  ],
+  "plugin": [
+    "true-mem"
+  ],
+  "mcp": {
+    "sourcebot-spatialkey": {
+      "type": "remote",
+      "url": "http://localhost:3000/api/mcp",
+      "enabled": true,
+      "oauth": false
+    },
+    "sourcebot-pd-prime": {
+      "type": "remote",
+      "url": "http://localhost:3001/api/mcp",
+      "enabled": true,
+      "oauth": false
+    },
+    "context7": {
+      "type": "local",
+      "timeout": 120000,
+      "command": [
+        "./bin/run-context7-mcp.sh"
+      ],
+      "enabled": true
+    },
+    "atlassian": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "oauth": {}
+    },
+    "figma": {
+      "type": "remote",
+      "url": "https://mcp.figma.com/mcp",
+      "enabled": false
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "timeout": 120000,
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--browser-url=http://127.0.0.1:9222",
+        "--no-usage-statistics"
+      ],
+      "enabled": true
+    },
+    "workspace_docs": {
+      "type": "local",
+      "timeout": 600000,
+      "command": [
+        "./bin/run-workspace-docs-mcp.sh"
+      ],
+      "enabled": true,
+      "environment": {
+        "WORKSPACE_DOCS_ENABLE_IMAGE_OCR": "false"
+      }
+    }
+  },
+  "agent": {
+    "build": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "medium",
+      "prompt": "{file:./prompts/build-reviewer-loop.md}",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "reviewer": "allow",
+          "security": "deny"
+        }
+      }
+    },
+    "explore": {
+      "permission": {
+        "read": "deny",
+        "grep": "deny",
+        "glob": "deny",
+        "codesearch": "deny",
+        "sourcebot-spatialkey_*": "allow",
+        "sourcebot-pd-prime_*": "allow",
+        "workspace_docs_*": "allow",
+        "list": "allow",
+        "bash": {
+          "*": "ask",
+          "rg *": "deny",
+          "grep *": "deny",
+          "find *": "deny"
+        }
+      }
+    },
+    "plan": {
+      "model": "github-copilot/claude-opus-4.6",
+      "variant": "high",
+      "prompt": "{file:./prompts/plan-judge-loop.md}",
+      "permission": {
+        "read": "allow",
+        "grep": "deny",
+        "glob": "deny",
+        "codesearch": "deny",
+        "sourcebot-spatialkey_*": "allow",
+        "sourcebot-pd-prime_*": "allow",
+        "workspace_docs_*": "allow",
+        "list": "allow",
+        "bash": {
+          "*": "ask",
+          "git diff *": "allow",
+          "git log *": "allow",
+          "git status*": "allow",
+          "git rev-parse *": "allow",
+          "git ls-files *": "allow",
+          "rg *": "deny",
+          "grep *": "deny",
+          "find *": "deny"
+        },
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "judge": "allow",
+          "security": "deny"
+        }
+      }
+    }
+  },
+  "provider": {
+    "github-copilot": {
+      "options": {
+        "timeout": 600000
+      }
+    }
+  }
+}
