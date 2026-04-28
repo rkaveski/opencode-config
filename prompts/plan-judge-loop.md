@@ -32,6 +32,7 @@ Your only additional responsibilities are:
 9. When you use Sourcebot, explicitly say `Using Sourcebot:` so the user can verify the Docker-backed path is being exercised.
 10. Use `explore` for multi-repo work, flow tracing, broad discovery, and Sourcebot-first narrowing. Do not use `explore` for routine narrow local inspection that you can do directly.
 11. `security` is user-invoked only. Do not call it automatically.
+11a. `judge-bert` and `judge-cappy` are available as sub-agents via `@judge-bert` / `@judge-cappy`. Do not invoke them automatically. Invoke only if the user explicitly requests a classifier or ranking pass during the session.
 12. Treat the plan as having one of three states: `drafting`, `approved`, or `reopened`.
 13. Do not call `judge` while you are still clarifying requirements, asking questions, exploring, or sketching partial planning thoughts.
 14. Call `judge` only when either:
@@ -70,9 +71,9 @@ Your only additional responsibilities are:
    - `Round`: the current automatic review round number
 25. Do not carry forward verbatim prior judge responses, earlier planner outputs, or broad repo summaries on re-submission unless a specific unresolved issue depends on that exact context.
 26. Re-submit only materially revised completed plan drafts to `judge`, never partial notes, in-progress planning, or non-material clarifications.
-27. The automatic `plan`/`judge` loop for the current completed plan artifact is limited to 2 actual judge submissions total:
+27. The automatic `plan`/`judge` loop for the current completed plan artifact is limited to 3 actual judge submissions total:
    - 1 initial judge pass
-   - at most 1 automatic revised re-submission
+   - at most 2 automatic revised re-submissions
 28. Only increment the review-round count when you actually submit a materially changed final plan to `judge`.
 29. Do not count clarification questions, explanation turns, user confirmations, or non-material follow-up discussion as review rounds.
 30. If the user explicitly asks you to run `judge` again, send the revised plan back to `judge`, have `judge` take another look, or otherwise requests another actual judge pass on a completed plan, reset the review-submission count to 0 before the next actual judge submission and treat that as a fresh review cycle for the current completed plan artifact.
@@ -80,7 +81,7 @@ Your only additional responsibilities are:
 32. Do not treat generic clarification, explanation, rationale discussion, scope confirmation, disagreement discussion, or wording-only discussion as a reset request.
 33. A reset request does not by itself force a review; the normal completed-final-plan gate still applies, so do not call `judge` until a completed final plan exists.
 34. If `judge` returns `GOOD TO GO`, stop the loop and keep that approval active until a material plan change happens.
-35. If the second automatic judge submission returns `REVISE` or times out, stop and escalate to the user with the remaining disagreement or timeout instead of auto-submitting a third pass.
+35. If the third automatic judge submission returns `REVISE` or times out, stop and escalate to the user with the remaining disagreement or timeout instead of auto-submitting a fourth pass.
 36. Do not use communication, event, notification, or chat tools for ordinary repo planning.
 37. Specifically, do not use `zulipchat_*` tools unless the user explicitly asks about Zulip, chat state, messages, stream activity, or event polling.
 38. If tool choice is ambiguous, prefer repo evidence over external event polling.

@@ -69,10 +69,53 @@
       "variant": "medium",
       "prompt": "{file:./prompts/build-reviewer-loop.md}",
       "permission": {
+        "bash": {
+          "npm test*": "ask",
+          "npm run test*": "ask",
+          "npm run lint*": "ask",
+          "npm run format*": "ask",
+          "npm run typecheck*": "ask",
+          "npm run type-check*": "ask",
+          "npm run check-types*": "ask",
+          "npm run prettier*": "ask",
+          "pnpm test*": "ask",
+          "pnpm run test*": "ask",
+          "pnpm lint*": "ask",
+          "pnpm run lint*": "ask",
+          "pnpm format*": "ask",
+          "pnpm run format*": "ask",
+          "pnpm typecheck*": "ask",
+          "pnpm run typecheck*": "ask",
+          "pnpm run type-check*": "ask",
+          "pnpm run check-types*": "ask",
+          "pnpm prettier*": "ask",
+          "pnpm run prettier*": "ask",
+          "yarn test*": "ask",
+          "yarn lint*": "ask",
+          "yarn format*": "ask",
+          "yarn typecheck*": "ask",
+          "yarn type-check*": "ask",
+          "yarn check-types*": "ask",
+          "yarn prettier*": "ask",
+          "bun test*": "ask",
+          "bun run test*": "ask",
+          "bun run lint*": "ask",
+          "bun run format*": "ask",
+          "bun run typecheck*": "ask",
+          "bun run type-check*": "ask",
+          "bun run check-types*": "ask",
+          "bun run prettier*": "ask",
+          "npx prettier*": "ask",
+          "prettier*": "ask",
+          "npx tsc*": "ask",
+          "tsc*": "ask"
+        },
         "task": {
           "*": "deny",
           "explore": "allow",
           "reviewer": "allow",
+          "judge-bert": "allow",
+          "judge-cappy": "allow",
           "security": "deny"
         }
       }
@@ -123,6 +166,8 @@
           "*": "deny",
           "explore": "allow",
           "judge": "allow",
+          "judge-bert": "allow",
+          "judge-cappy": "allow",
           "security": "deny"
         }
       }
@@ -134,5 +179,10 @@
         "timeout": 600000
       }
     }
+  },
+  "skills": {
+    "paths": [
+      "/Users/rodrigodapazkaveski/.config/opencode/vendor/claude-engineering-plugin/skills"
+    ]
   }
 }

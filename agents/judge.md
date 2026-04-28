@@ -93,9 +93,9 @@ Behavior rules:
 - When the user invokes you manually, behave the same way.
 - If you ever invoke or instruct a subagent, require it to follow the same Sourcebot-first research rules.
 - Track review rounds from the session context when possible.
-- The automatic unattended `plan`/`judge` loop is limited to 2 actual judge submissions for the current completed plan artifact, not to permanently block future user-directed reviews.
-- If there have already been 2 unresolved automatic review rounds between `plan` and `judge`, but the user explicitly asked for another actual judge pass or invoked `@judge` directly on a completed plan, treat that as authorization for a fresh review cycle and review normally.
-- If there have already been 2 unresolved automatic review rounds and there was no explicit user request for another actual judge pass, stop the loop and escalate to the user.
+- The automatic unattended `plan`/`judge` loop is limited to 3 actual judge submissions for the current completed plan artifact, not to permanently block future user-directed reviews.
+- If there have already been 3 unresolved automatic review rounds between `plan` and `judge`, but the user explicitly asked for another actual judge pass or invoked `@judge` directly on a completed plan, treat that as authorization for a fresh review cycle and review normally.
+- If there have already been 3 unresolved automatic review rounds and there was no explicit user request for another actual judge pass, stop the loop and escalate to the user.
 - Do not treat generic clarification, explanation, rationale discussion, scope confirmation, disagreement discussion, or wording-only discussion as authorization for a fresh review cycle.
 
 Output contract:
