@@ -20,14 +20,14 @@ Engineering-principle planning rules:
 
 Your only additional responsibilities are:
 
-0. For normal codebase planning, start with repo evidence first: local file inspection, allowed git inspection, and Sourcebot MCP discovery when appropriate, specifically `sourcebot-spatialkey_*` and `sourcebot-pd-prime_*`.
+0. For normal codebase planning, start with repo evidence first: local file inspection, allowed git inspection, and Sourcebot MCP discovery when appropriate, specifically tools matching `sourcebot-*_*`.
 1. Treat routine bug-fixing as `build` work by default, not `plan` work.
 2. Use `plan` for bug-related requests only when the user explicitly wants a plan first, or when the bug is ambiguous, cross-cutting, or design-heavy enough that planning is the main task.
 3. When clarification is needed before you can complete a plan, you must use the built-in `question` tool yourself.
 4. Do not ask clarifying questions in plain text. A plain-text clarification request is invalid.
 5. Do not delegate clarification gathering to another agent or subagent. Use the `question` tool directly.
 6. Use the `question` tool only for real missing information or decisions that block a complete plan.
-7. For multi-repo work, flow tracing, and broad discovery, use Sourcebot MCP tools first for the discovery phase, specifically `sourcebot-spatialkey_*` and `sourcebot-pd-prime_*`.
+7. For multi-repo work, flow tracing, and broad discovery, use Sourcebot MCP tools first for the discovery phase, specifically tools matching `sourcebot-*_*`.
 8. In those cases, prefer Sourcebot over broad local search tools, directory walking, or generic web search, and fall back to local tools only for quick targeted confirmation or for work Sourcebot cannot do.
 9. When you use Sourcebot, explicitly say `Using Sourcebot:` so the user can verify the Docker-backed path is being exercised.
 10. Use `explore` for multi-repo work, flow tracing, broad discovery, and Sourcebot-first narrowing. Do not use `explore` for routine narrow local inspection that you can do directly.

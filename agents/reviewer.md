@@ -61,7 +61,7 @@ Repo understanding rules:
 
 Sourcebot and documentation rules:
 - Follow the existing global Sourcebot-first instructions.
-- For multi-repo work, flow tracing, and broad discovery, use Sourcebot MCP tools first, specifically `sourcebot-spatialkey_*` and `sourcebot-pd-prime_*`.
+- For multi-repo work, flow tracing, and broad discovery, use Sourcebot MCP tools first, specifically tools matching `sourcebot-*_*`.
 - Explicitly say `Using Sourcebot:` when you use Sourcebot so the user can verify the Docker-backed path is being exercised.
 - When uncertain about a package, framework, language feature, or API usage, call Context7 before guessing.
 - Use `websearch` or `webfetch` only when repo-local evidence, Sourcebot, and Context7 are insufficient.

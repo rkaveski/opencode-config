@@ -3,7 +3,8 @@
   "model": "github-copilot/claude-opus-4.6",
   "instructions": [
     "./instructions/sourcebot-first.md",
-    "./instructions/workspace-docs-retrieval.md"
+    "./instructions/workspace-docs-retrieval.md",
+    "./instructions/plain-english.md"
   ],
   "plugin": [
     "true-mem"
@@ -126,8 +127,7 @@
         "grep": "deny",
         "glob": "deny",
         "codesearch": "deny",
-        "sourcebot-spatialkey_*": "allow",
-        "sourcebot-pd-prime_*": "allow",
+        "sourcebot-*_*": "allow",
         "workspace_docs_*": "allow",
         "list": "allow",
         "bash": {
@@ -147,8 +147,7 @@
         "grep": "deny",
         "glob": "deny",
         "codesearch": "deny",
-        "sourcebot-spatialkey_*": "allow",
-        "sourcebot-pd-prime_*": "allow",
+        "sourcebot-*_*": "allow",
         "workspace_docs_*": "allow",
         "list": "allow",
         "bash": {

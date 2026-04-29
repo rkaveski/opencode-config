@@ -5,8 +5,7 @@ model: github-copilot/gpt-5.4
 variant: high
 permission:
   edit: deny
-  sourcebot-spatialkey_*: allow
-  sourcebot-pd-prime_*: allow
+  sourcebot-*_*: allow
   workspace_docs_*: allow
   read: allow
   list: allow
@@ -69,7 +68,7 @@ Treat the following as blocking issues unless the user explicitly asked for them
 
 Research rules:
 - For known-file or narrowly scoped single-repo inspection, use local repo tools first.
-- For multi-repo work, flow tracing, broad discovery, or single-repo impact analysis where you need to find related code elsewhere, use Sourcebot MCP tools first for the discovery phase, specifically `sourcebot-spatialkey_*` and `sourcebot-pd-prime_*`.
+- For multi-repo work, flow tracing, broad discovery, or single-repo impact analysis where you need to find related code elsewhere, use Sourcebot MCP tools first for the discovery phase, specifically tools matching `sourcebot-*_*`.
 - In those cases, prefer Sourcebot over broad local `grep`, `glob`, directory walking, or generic web search unless a local file read is needed to confirm a specific detail.
 - After Sourcebot narrows the search, use local file tools for quick targeted reads of the exact files, symbols, or lines you need to confirm.
 - When you use Sourcebot, explicitly say `Using Sourcebot:` so the user can verify the Sourcebot Docker path is being exercised.
